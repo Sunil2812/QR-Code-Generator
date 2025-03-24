@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - Create Custom QR Codes</title>
+    <meta name="description" content="Free QR Code Generator - Create custom QR codes for websites, text, WiFi, contacts, social media, and more. Download in PNG, SVG, or PDF format.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR-ADSENSE-CLIENT-ID" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <div class="container mx-auto px-4 py-8 flex-grow">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">QR Code Generator</h1>
+            <p class="text-gray-600">Create custom QR codes for websites, text, WiFi, contacts, and more</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Input Section -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="qrType">
+                        QR Code Type
+                    </label>
+                    <select id="qrType" class="w-full p-2 border rounded">
+                        <option value="url">Website URL</option>
+                        <option value="text">Text/Message</option>
+                        <option value="wifi">WiFi Credentials</option>
+                        <option value="vcard">Contact Information</option>
+                        <option value="social">Social Media</option>
+                        <option value="email">Email</option>
+                        <option value="payment">Payment Link</option>
+                    </select>
+                </div>
+
+                <!-- Dynamic Form Fields -->
+                <div id="dynamicFields" class="space-y-4">
+                    <!-- URL Input -->
+                    <div id="urlFields">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="url">
+                            Website URL
+                        </label>
+                        <input type="url" id="url" class="w-full p-2 border rounded" placeholder="https://example.com">
+                    </div>
+                </div>
+
+                <!-- Customization Options -->
+                <div class="mt-6 space-y-4">
+                    <h3 class="text-lg font-semibold">Customization</h3>
+                    
+                    <!-- Color Options -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">QR Code Color</label>
+                        <input type="color" id="qrColor" value="#000000" class="w-full h-10">
+                    </div>
+
+                    <!-- Size Slider -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Size</label>
+                        <input type="range" id="qrSize" min="100" max="400" value="200" class="w-full">
+                    </div>
+
+                    <!-- Logo Upload -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Logo (Optional)</label>
+                        <div id="dropZone" class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                            <p class="text-gray-500">Drag & drop a logo here or click to upload</p>
+                            <input type="file" id="logoUpload" accept="image/*" class="hidden">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="generateBtn" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg mt-6 hover:bg-blue-600 transition-colors">
+                    Generate QR Code
+                </button>
+            </div>
+
+            <!-- Output Section -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div id="qrOutput" class="flex flex-col items-center">
+                    <div id="qrCode" class="mb-4"></div>
+                    <div class="space-y-4 w-full">
+                        <button id="downloadPNG" class="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors">
+                            Download as PNG
+                        </button>
+                        <button id="downloadSVG" class="w-full bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition-colors">
+                            Download as SVG
+                        </button>
+                        <button id="downloadPDF" class="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors">
+                            Download as PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Side Ad -->
+        <div class="mt-8">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="YOUR-ADSENSE-CLIENT-ID"
+                 data-ad-slot="YOUR-SIDE-AD-SLOT"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-sm mt-8">
+        <div class="container mx-auto px-4 py-6">
+            <div class="text-center text-sm text-gray-600">
+                © 2024 QR Code Generator. Created by <a href="https://www.adhyamart.in" target="_blank" class="text-blue-500 hover:text-blue-700">Sunil Sonagara</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Initialize AdSense -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html> 
